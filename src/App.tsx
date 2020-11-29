@@ -3,6 +3,8 @@ import {theme} from './theme/theme';
 import {ThemeProvider} from './theme';
 import {GlobalStyle} from './theme/global';
 import {AppContainer} from './components/container';
+import {Header} from './components/header';
+
 
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
       <Fragment>
         <GlobalStyle />
         <AppContainer>
+          <Header />
           <header className="App-header">
             <p>
               Go! Ju. You will be there.
