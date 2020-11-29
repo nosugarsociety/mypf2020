@@ -48,6 +48,11 @@ export const GlobalStyle = createGlobalStyle`
     background-position: calc(100% - 20px);
   }
 
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
   li {
     list-style: none;
   }
