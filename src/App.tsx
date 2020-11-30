@@ -4,8 +4,7 @@ import {ThemeProvider} from './theme';
 import {GlobalStyle} from './theme/global';
 import {AppContainer} from './components/container';
 import {Header} from './components/header';
-
-
+import {Main} from './components/main';
 
 function App() {
   return (
@@ -14,12 +13,8 @@ function App() {
         <GlobalStyle />
         <AppContainer>
           <Header />
-          <header className="App-header">
-            <p>
-              Go! Ju. You will be there.
-            </p>
-            <h2>KWONN</h2>
-          </header>
+          <Main/>
+   
         </AppContainer>
       </Fragment>
     </ThemeProvider>

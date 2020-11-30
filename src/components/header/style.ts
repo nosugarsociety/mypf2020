@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -19,7 +19,7 @@ export const Contents = styled.p`
 `;
 
 export const MainIntro = styled.div`
-
+  margin-bottom: 45px;
 `;
 
 export const Contact = styled.div`

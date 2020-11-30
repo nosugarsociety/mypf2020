@@ -16,18 +16,15 @@ export const Header = () => {
 
   const fetchIntros = async (): Promise<Entry<IntroProps>[]> => {
     const intros = await ContentfulClient.fetchIntro(); 
-    if (intros) {   
-      setIntro(intros);
-    }
+    setIntro(intros);
+    
     return intros;
-  }
+  };
 
   useEffect(() => {
     fetchIntros();
   }, []);
   
-  console.log("introcontents:", introContents);
-
   const fields = introContents[0]?.fields;
   const name = fields?.name;
   const email = fields?.email;
