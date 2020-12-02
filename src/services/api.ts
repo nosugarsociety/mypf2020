@@ -17,9 +17,16 @@ export interface ProjectItem {
   readonly gallery?: any  
 }
 
+export interface ProjectGalleryProps { 
+  /* Project Gallery */
+  readonly titleOfGallery?: string  
+  readonly galleryImg?: ReadonlyArray<Asset>  
+}
+
 interface ContentfulClientProps {
   fetchIntro(): Promise<Entry<IntroProps>[]>;
   fetchProjectItem(): Promise<Entry<ProjectItem>[]>;
+  fetchGalleryImg(): Promise<Entry<ProjectGalleryProps>[]>;
 }
 
 class ContentfulClient implements ContentfulClientProps {
@@ -52,6 +59,18 @@ class ContentfulClient implements ContentfulClientProps {
       return entries.items;
     } catch (error) {
       console.log('ContentfulClient -> fetchProjectItem -> error', error);
+      return [];
+    }
+  }
+
+  async fetchGalleryImg() {
+    try { 
+      const entries: EntryCollection<ProjectGalleryProps> = await this.client.getEntries({
+        content_type: 'projectGallery'
+      });
+      return entries.items;
+    } catch (error) {
+      console.log('ContentfulClient -> fetchGalleryImg -> error', error);
       return [];
     }
   }

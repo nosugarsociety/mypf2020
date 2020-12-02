@@ -5,7 +5,6 @@ export const HeaderContainer = styled.header`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 117px;
-
 `;
 
 export const Name = styled.h2`
@@ -28,6 +27,10 @@ export const Contact = styled.div`
   a {
     font-size: 18px; 
     margin-right: 15px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
 
     &:before {
       content: '';

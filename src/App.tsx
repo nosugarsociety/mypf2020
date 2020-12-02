@@ -1,22 +1,26 @@
 import React, {Fragment} from 'react';
 import {theme} from './theme/theme';
 import {ThemeProvider} from './theme';
+import {StateProvider} from './context';
 import {GlobalStyle} from './theme/global';
 import {AppContainer} from './components/container';
 import {Header} from './components/header';
 import {Main} from './components/main';
+import {ProjectGallery} from './components/projectGallery';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Fragment>
-        <GlobalStyle />
-        <AppContainer>
-          <Header />
-          <Main/>
-   
-        </AppContainer>
-      </Fragment>
+      <StateProvider>
+        <Fragment>        
+          <GlobalStyle />
+          <AppContainer>
+            <Header />
+            <Main/>
+            <ProjectGallery />
+          </AppContainer>
+        </Fragment>
+      </StateProvider>
     </ThemeProvider>
   );
 }

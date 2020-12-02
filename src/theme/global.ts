@@ -4,11 +4,16 @@ import {createGlobalStyle} from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
 
+  #root {
+    padding: 0 80px;
+  }
+
   body {
     font-family: 'acumin-pro', sans-serif;
     font-weight: 400;
     font-style: normal;
     background-color: rgb(232, 232, 232);
+    transition: background-color .3s;
     
     /* &.resize-animation-stopper {
       * {
@@ -16,6 +21,26 @@ export const GlobalStyle = createGlobalStyle`
         animation: none !important;
       }
     } */
+
+    &.kwonn {
+      background-color: #C1D2C7;
+    }
+
+    &.the-williamsburg-hotel {
+      background-color: #FABAB2;
+    }
+
+    &.sfari-gene {
+      background-color: #B9DCF2;
+    }
+
+    &.obsidian {
+      background-color: #EFCB90;
+    }
+
+    &.big-human {
+      background-color: #474747;
+    }
   }
 
   p, h1, h2, h3, h4, h5, h6 {
