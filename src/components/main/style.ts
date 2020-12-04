@@ -246,10 +246,6 @@ export const CloseButtonContainer = styled.div<CloseButtonProp>`
     width: calc(100% - 120px);  
   `}
 
-  ${({ theme: { media } }) => media.desktop`
-    width: 100%;
-  `}
-
   svg {
     margin-left: auto;
     cursor: pointer;

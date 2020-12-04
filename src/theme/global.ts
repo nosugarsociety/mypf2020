@@ -10,11 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     @media (min-width: 768px) {
       padding: 0 60px;
     }
-    
-    @media (min-width: 1024px) {
-      padding-right: 0;
-      padding-left: 0;
-    }
   }
 
   body {
