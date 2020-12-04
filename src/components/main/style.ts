@@ -64,15 +64,11 @@ export const ProjectSection = styled.section<ProejctSectionProps>`
   &.active {
     opacity: 1;
     position: sticky;
-    top: ${props => props.toTop};
+    top: ${props => props.toTop}px;
     z-index: 4;
     color: ${props => (props.project === 'big-human' ? '#fff' : '#000')}; 
     width: max-content;
   
-    /* @media (min-width: 768px) {
-      top: ${props => props.toTop};
-    } */
-
     ${ThumbNail} {
       display: none;
     }
@@ -252,7 +248,6 @@ export const CloseButtonContainer = styled.div<CloseButtonProp>`
 
   ${({ theme: { media } }) => media.desktop`
     width: 100%;
-    top: 60px;
   `}
 
   svg {

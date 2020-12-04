@@ -9,11 +9,12 @@ export const HeaderContainer = styled.header`
   position: relative;
   
   ${({ theme: { media } }) => media.tablet`    
+    margin-bottom: 0;
     flex-direction: row;
   `}
 
   ${({ theme: { media } }) => media.desktop`    
-    margin-top: 117px;
+    margin-top: 80px;
   `}
 `;
 

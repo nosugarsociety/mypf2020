@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
   ${normalize()}
 
   #root {
-    /* padding: 0 80px; */
     padding: 0 30px;
 
     @media (min-width: 768px) {
@@ -25,13 +24,6 @@ export const GlobalStyle = createGlobalStyle`
     background-color: rgb(232, 232, 232);
     transition: background-color .3s;
     
-    /* &.resize-animation-stopper {
-      * {
-        transition: none !important;
-        animation: none !important;
-      }
-    } */
-
     &.kwonn {
       background-color: #C1D2C7;
     }
