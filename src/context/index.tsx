@@ -5,25 +5,29 @@ type Props = {
   children?: React.ReactNode;
 }
 
-const initialState = {
-  active: false,
-  activated: false,
-  activeTarget: '',
-}
-
-const store: any = createContext(initialState);
-const {Provider} = store;
 
 type State = {
   active: boolean;
   activated: boolean;
   activeTarget: string;
+  activeTargetHeight: number;
 }
 
 type Actions =
  | { type: 'TOGGLE_ACTIVE', active: boolean }
  | { type: 'TOGGLE_ACTIVATE', activated: boolean }
- | { type: 'SET_ACTIVE_TARGET', activeTarget: string };
+ | { type: 'SET_ACTIVE_TARGET', activeTarget: string }
+ | { type: 'SET_STICKY_SCROLL_HEIGHT', activeTargetHeight: number };
+
+const initialState = {
+  active: false,
+  activated: false,
+  activeTarget: '',
+  activeTargetHeight: 0
+}
+
+const store: any = createContext(initialState);
+const {Provider} = store;
 
 const StateProvider = ({children}: Props) => {
   const [state, dispatch] = useReducer((state: State, action: Actions) => {
@@ -38,6 +42,10 @@ const StateProvider = ({children}: Props) => {
       }
       case types.SET_ACTIVE_TARGET: {
         const newState = {...state, activeTarget: action.activeTarget}
+        return newState;
+      }
+      case types.SET_STICKY_SCROLL_HEIGHT: {
+        const newState = {...state, activeTargetHeight: action.activeTargetHeight}
         return newState;
       }
       default:

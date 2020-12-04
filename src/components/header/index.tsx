@@ -32,7 +32,7 @@ export const Header = () => {
   const intros = fields?.intro;
 
   return (
-    <HeaderContainer>
+    <HeaderContainer id="header">
       <MainIntro>
         <Name>{name}</Name>
         <Contents>{intros}</Contents>

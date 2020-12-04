@@ -1,22 +1,20 @@
 /* eslint-disable array-callback-return */
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState, useRef, useContext} from 'react';
 import Slider from 'react-slick';
 import {SlickStyles} from '../../theme/slick';
 import {Entry} from 'contentful';
 import {store} from '../../context';
-import {
-  TOGGLE_ACTIVE, 
-  TOGGLE_ACTIVATE,
-  SET_ACTIVE_TARGET 
-} from '../../context/types';
+import {SET_STICKY_SCROLL_HEIGHT} from '../../context/types';
 import {ContentfulClient} from '../../services';
 import {ProjectGalleryProps} from '../../services/api';
 import {ProjectGalleryItem} from './style';
 
 export const ProjectGallery = () => {
+  const galleryItem = useRef<any>(null);
+  
   const globalState = useContext<any>(store);
-  console.log("globalState gallery:", globalState.state);
   const {activeTarget} = globalState.state;
+  const {dispatch} = globalState;
   const activeIdValue = activeTarget.replace(/\W+/g, '-').toLowerCase();
 
   const settings = {
@@ -30,7 +28,6 @@ export const ProjectGallery = () => {
   
   const fetchProjectImgs = async (): Promise<Entry<ProjectGalleryProps>[]>  => {
     const projectGalleries = await ContentfulClient.fetchGalleryImg() as any;
-  
     if (projectGalleries) {
       setGallery(projectGalleries);
     }
@@ -42,15 +39,18 @@ export const ProjectGallery = () => {
   }, []);
 
   useEffect(() => {
-    console.log("activeIdValue:", activeIdValue);
     const bodyClassValue = document.body.classList[0];
     if(activeIdValue) {
       document.body.classList.add(activeIdValue);
     } else {
       document.body.classList.remove(bodyClassValue);
     }
-
   }, [activeIdValue]);
+  
+  useEffect(() => {  
+    const targetHeight = activeIdValue ? document.getElementById(`${activeIdValue}`)?.scrollHeight : 0;
+    dispatch({type: SET_STICKY_SCROLL_HEIGHT, activeTargetHeight: targetHeight})
+  }, [activeIdValue, dispatch]);
 
   const renderGalleries = (galleries: ProjectGalleryProps[] | undefined) => {
   
@@ -58,6 +58,7 @@ export const ProjectGallery = () => {
       const {galleryImg, titleOfGallery} = gallery?.fields;      
       return (
         <ProjectGalleryItem 
+          ref={galleryItem}
           id={titleOfGallery} 
           key={titleOfGallery}
           className={activeIdValue === titleOfGallery ? 'active' : ''}

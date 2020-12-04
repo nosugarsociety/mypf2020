@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 export const ProjectGalleryItem = styled.div`
   position: absolute;
   top: 0;  
+  left: 0;
   width: 100%;
   opacity: 0;
   visibility: hidden;
@@ -14,7 +15,11 @@ export const ProjectGalleryItem = styled.div`
 
     .slick-slide {
       img {
-        height: auto;
+        height: 100vh;
+
+        ${({ theme: { media } }) => media.tablet`    
+          height: auto;
+        `}
       }
     }
   }
@@ -26,7 +31,6 @@ export const ProjectGalleryItem = styled.div`
   .slick-slide {
     img {
       height: 0;
-      max-height: 3000px;
       object-fit: cover;      
       object-position: top;
     }
@@ -54,6 +58,18 @@ export const ProjectGalleryItem = styled.div`
     &.slick-next {
       right: 0;
       cursor: url('./arrrow.svg'), auto;
+    }
+  }
+
+  .big-human & {
+    .slick-arrow { 
+      &.slick-prev {   
+        cursor: url('./arrow-left-white.svg'), auto;
+      }
+
+      &.slick-next {
+        cursor: url('./arrow-white.svg'), auto;
+      }
     }
   }
 

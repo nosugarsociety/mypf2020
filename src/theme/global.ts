@@ -5,7 +5,17 @@ export const GlobalStyle = createGlobalStyle`
   ${normalize()}
 
   #root {
-    padding: 0 80px;
+    /* padding: 0 80px; */
+    padding: 0 30px;
+
+    @media (min-width: 768px) {
+      padding: 0 60px;
+    }
+    
+    @media (min-width: 1024px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 
   body {

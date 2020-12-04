@@ -2,9 +2,19 @@ import styled from 'styled-components/macro';
 
 export const HeaderContainer = styled.header`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  margin-top: 117px;
+  margin-top: 80px;
+  margin-bottom: 36px;
+  position: relative;
+  
+  ${({ theme: { media } }) => media.tablet`    
+    flex-direction: row;
+  `}
+
+  ${({ theme: { media } }) => media.desktop`    
+    margin-top: 117px;
+  `}
 `;
 
 export const Name = styled.h2`
@@ -12,17 +22,34 @@ export const Name = styled.h2`
   margin-bottom: 23px;
 `;
 
-export const Contents = styled.p`
+export const Contents = styled.p`  
   ${({theme}) => theme.utils.paragraph}; 
-  max-width: 680px; 
+  max-width: 610px;
+
+  ${({ theme: { media } }) => media.desktop`    
+    max-width: 720px;
+  `}
 `;
 
 export const MainIntro = styled.div`
-  margin-bottom: 45px;
+  margin-bottom: 25px;
+  
+  ${({ theme: { media } }) => media.tablet`    
+    margin-bottom: 40px;
+  `}
 `;
 
 export const Contact = styled.div`
-  margin-left: auto;
+  ${({ theme: { media } }) => media.tablet`    
+    margin-left: auto;
+    position: absolute;      
+    right: 0;
+    top: 0;
+  `}
+
+  ${({ theme: { media } }) => media.largeDesktop`    
+    min-width: initial;
+  `}
 
   a {
     font-size: 18px; 
