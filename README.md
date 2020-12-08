@@ -1,6 +1,6 @@
 # Ju's Portfolio 2020
 
-> <a>Go to Site!</a>
+> Site URL: https://portfolio2020-39835.web.app  
 
 ## About
 
@@ -11,3 +11,6 @@ and used Contentful as CMS.
 ### To Run
 Download repository and  `yarn start`. Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+
+
