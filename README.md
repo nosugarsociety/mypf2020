@@ -1,6 +1,6 @@
 # Ju's Portfolio 2020
 
-> Site URL: https://portfolio2020-39835.web.app  
+> Site URL: jusang.online
 
 ## About
 
