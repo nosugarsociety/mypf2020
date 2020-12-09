@@ -67,8 +67,11 @@ export const ProjectSection = styled.section<ProejctSectionProps>`
     top: ${props => props.toTop}px;
     z-index: 4;
     color: ${props => (props.project === 'big-human' ? '#fff' : '#000')}; 
-    width: max-content;
-  
+
+    ${({ theme: { media } }) => media.tablet`
+      width: max-content;
+    `}
+
     ${ThumbNail} {
       display: none;
     }
@@ -179,14 +182,17 @@ export const ProjectBlurbContents = styled.p`
   opacity: 0;
   transition: .3s ease-in-out;
   position: absolute;
-  bottom: -86px;
+  top: 9.5vw;
   left: 4px;
-  margin-right: -50%;
 
   ${({ theme: { media } }) => media.tablet`
     left: 8px;
   `}
 
+  ${({ theme: { media } }) => media.largeDesktop`
+    top: 124px;
+  `}
+  
   > * {
     font-size: 16px;
     

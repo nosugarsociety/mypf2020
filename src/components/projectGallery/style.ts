@@ -6,8 +6,7 @@ export const ProjectGalleryItem = styled.div`
   left: 0;
   width: 100%;
   opacity: 0;
-  visibility: hidden;
-  transition: visibility .5s ease-in-out, opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
 
   &.active {
     opacity: 1;
