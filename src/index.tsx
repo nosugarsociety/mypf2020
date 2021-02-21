@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Favicon from 'react-favicon';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Favicon url="./newfav.ico" />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
